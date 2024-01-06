@@ -5,10 +5,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Manajemen Resi</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 56px; /* Menyesuaikan tinggi navigasi bar */
+            }
+            .navbar {
+                background-color: #f8f9fa; /* Warna latar navigasi bar */
+            }
+        </style>
     </head>
     <body>
+        <!-- Navigasi Bar -->
+        <nav class="navbar navbar-expand-md navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="https://png.pngtree.com/png-clipart/20220619/original/pngtree-open-book-vector-icon-png-image_8091301.png" alt="logo resi" style="max-height: 50px; max-width: 150px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+                            <a class="nav-link" href="/">Dashboard</a>
+                        </li>
+                        <li class="nav-item {{ Request::is('resis*') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('resis.index') }}">Manajemen Resi</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <div class="container mt-5 mb-5">
-            @yield('content')
+            <!-- Main content area -->
+            <main class="mt-5">
+                @yield('content')
+            </main>
         </div>
 
         <!-- Tambahkan script Bootstrap JS dan Popper.js (diperlukan oleh Bootstrap) -->

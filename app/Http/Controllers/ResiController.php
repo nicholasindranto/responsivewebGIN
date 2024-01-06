@@ -8,10 +8,19 @@ use Carbon\Carbon;
 
 class ResiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // Tampilkan daftar post
-        $resis = Resi::all();
+        
+        $resis = Resi::query();
+
+        // Tambahkan logika pencarian
+        if ($request->has('search')) {
+            $resis->where('no_resi', 'like', '%' . $request->input('search') . '%');
+        }
+
+        $resis = $resis->get();
+
         return view('resis.index', compact('resis'));
     }
 

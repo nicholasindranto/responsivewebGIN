@@ -8,6 +8,21 @@
 
         <a href="{{ route('resis.create') }}" class="btn btn-primary mb-3">Tambah Resi Baru</a>
 
+        <!-- Form untuk pencarian -->
+        <form action="{{ route('resis.index') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Cari Nomor Resi" value="{{ request('search') }}">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary">Search</button>
+                </div>
+                @if(request('search'))
+                    <div class="input-group-append">
+                        <a href="{{ route('resis.index') }}" class="btn btn-outline-secondary">Reset</a>
+                    </div>
+                @endif
+            </div>
+        </form>
+
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
