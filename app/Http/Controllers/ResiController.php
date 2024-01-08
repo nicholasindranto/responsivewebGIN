@@ -15,11 +15,16 @@ class ResiController extends Controller
         $resis = Resi::query();
 
         // Tambahkan logika pencarian
-        if ($request->has('search')) {
-            $resis->where('no_resi', 'like', '%' . $request->input('search') . '%');
+        // if ($request->has('search')) {
+        //     $resis->where('no_resi', 'like', '%' . $request->input('search') . '%');
+        // }
+
+        // Tambahkan logika filter berdasarkan bulan
+        if ($request->has('month') && $request->input('month') != 'all') {
+            $resis->whereMonth('tanggal', $request->input('month'));
         }
 
-        $resis = $resis->get();
+        $resis = $resis->paginate(5);
 
         return view('resis.index', compact('resis'));
     }
