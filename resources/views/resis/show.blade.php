@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container">
         <h2>Detail Resi</h2>
 
         <dl class="row">
@@ -47,6 +47,6 @@
             <dd class="col-sm-9">{{ $resi->cod == true ? 'Yes' : 'No' }}</dd>
         </dl>
 
-        <a href="{{ route('resis.index') }}" class="btn btn-secondary">Kembali ke Daftar Resi</a>
+        <a href="{{ route('resis.index') }}" class="btn btn-secondary">Back</a>
     </div>
 @endsection

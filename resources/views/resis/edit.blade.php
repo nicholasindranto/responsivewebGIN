@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container">
         <h2>Edit Resi</h2>
 
         <form action="{{ route('resis.update', $resi->id) }}" method="POST">
@@ -85,8 +85,8 @@
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                <a href="{{ route('resis.index') }}" class="btn btn-secondary">Kembali ke Daftar Resi</a>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{{ route('resis.index') }}" class="btn btn-secondary">Back</a>
             </div>
         </form>
     </div>

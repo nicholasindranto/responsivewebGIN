@@ -3,10 +3,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
-        <h2 class="mb-4">Daftar Resi</h2>
+    <div class="container">
+        <h2 class="mb-3">Daftar Resi</h2>
 
-        <a href="{{ route('resis.create') }}" class="btn btn-primary mb-3">Tambah Resi Baru</a>
+        <a href="{{ route('resis.create') }}" class="btn btn-primary mb-3">Create</a>
 
         <!-- Form untuk pencarian -->
         <form action="{{ route('resis.index') }}" method="GET" class="mb-3">
@@ -49,7 +49,7 @@
                             <td>{{ $resi->jml }}</td>
                             <td>Rp {{ number_format($resi->biaya, 0, ',', '.') }}</td>
                             <td>{{ $resi->cod == true ? 'Yes' : 'No' }}</td>
-                            <td>
+                            <td class="">
                                 <a href="{{ route('resis.show', $resi->id) }}" class="btn btn-info btn-sm">Detail</a>
                                 <a href="{{ route('resis.edit', $resi->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('resis.destroy', $resi->id) }}" method="POST" style="display: inline;">
